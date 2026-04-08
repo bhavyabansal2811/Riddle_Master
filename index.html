@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,18 @@
 
   <main>
 
+    <!-- Filter -->
+    <select id="filterSelect">
+      <option value="all">All</option>
+      <option value="short">Short</option>
+      <option value="long">Long</option>
+      <option value="easy">Easy</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <!-- Dark Mode -->
+    <button id="toggleTheme">Toggle Dark/Light Mode</button>
+
     <div id="loading">Loading riddles...</div>
 
     <button id="nextRiddle">Next Riddle</button>
@@ -23,11 +36,12 @@
     <div id="riddleContainer"></div>
 
   </main>
+
   <footer>
-  <p>Built using JavaScript and a public Riddle API</p>
+    <p>Built using JavaScript and a public Riddle API</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 
 </body>
 </html>
