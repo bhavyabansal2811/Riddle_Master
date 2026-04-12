@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,33 +11,65 @@
 
   <header>
     <h1>🧠 Riddle Master</h1>
-    <p>Explore and solve fun riddles!</p>
+    <p>Challenge your brain with fun riddles!</p>
+    <button id="toggleTheme">🌙 Dark / Light Mode</button>
   </header>
 
   <main>
 
-    <!-- Filter -->
-    <select id="filterSelect">
-      <option value="all">All</option>
-      <option value="short">Short</option>
-      <option value="long">Long</option>
-      <option value="easy">Easy</option>
-      <option value="hard">Hard</option>
-    </select>
+    <!-- Search bar -->
+    <section class="search-section">
+      <h2>🔍 Search Riddles</h2>
+      <input type="text" id="searchInput" placeholder="Type a keyword to search..." />
+      <div id="searchResults"></div>
+    </section>
 
-    <!-- Dark Mode -->
-    <button id="toggleTheme">Toggle Dark/Light Mode</button>
+    <hr>
 
-    <div id="loading">Loading riddles...</div>
+    <!-- Single Riddle section -->
+    <section class="random-section">
+      <h2>🎲 Random Riddle</h2>
 
-    <button id="nextRiddle">Next Riddle</button>
+      <div class="controls">
+        <select id="filterSelect">
+          <option value="all">All Answers</option>
+          <option value="one">One Word Answer</option>
+          <option value="two">Two Word Answer</option>
+          <option value="long">Long Answer (3+ words)</option>
+        </select>
 
-    <div id="riddleContainer"></div>
+        <select id="sortSelect">
+          <option value="none">No Sorting</option>
+          <option value="asc">Sort: Riddle A → Z</option>
+          <option value="desc">Sort: Riddle Z → A</option>
+          <option value="shortFirst">Sort: Short Riddle First</option>
+          <option value="longFirst">Sort: Long Riddle First</option>
+        </select>
+
+        <button id="nextRiddle">⏭ Next Riddle</button>
+        <button id="loadMany">📦 Load 5 Riddles</button>
+      </div>
+
+      <div id="loading" class="loading-msg">Loading riddles...</div>
+
+      <div id="riddleContainer"></div>
+    </section>
+
+    <hr>
+
+    <!-- Favorites section -->
+    <section class="favorites-section">
+      <h2>⭐ My Favorite Riddles</h2>
+      <p id="favEmpty">No favorites yet. Click the star button on a riddle to save it!</p>
+      <div id="favContainer"></div>
+      <button id="clearFavs">🗑 Clear Favorites</button>
+    </section>
 
   </main>
 
   <footer>
-    <p>Built using JavaScript and a public Riddle API</p>
+    <p>Made with ❤️ using JavaScript and the Riddle API</p>
+    <p>This project uses: Fetch API, Array HOFs (filter, sort, map), LocalStorage, Dark Mode</p>
   </footer>
 
   <script src="script.js" defer></script>
