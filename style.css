@@ -1,81 +1,267 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
-  padding:20px;
-  text-align:center;
-  max-width:900px;
-  margin:auto;
-  background-color: rgb(41, 30, 47);
+  background-color: #1a1a2e;
+  color: #f0f0f0;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ---- DARK MODE (light version when toggled) ---- */
+body.dark {
+  background-color: #f5f5f5;
+  color: #111;
+}
+
+body.dark .riddle-card {
+  background: #ffffff;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+body.dark header {
+  background: #dce3f0;
+  color: #111;
+}
+
+body.dark footer {
+  background: #dce3f0;
+  color: #333;
+}
+
+body.dark select,
+body.dark input {
+  background: #fff;
+  color: #111;
+  border: 1px solid #aaa;
+}
+
+body.dark #toggleTheme {
+  background: #444;
+  color: #fff;
+}
+
+/* ---- HEADER ---- */
+header {
+  background: #16213e;
+  padding: 30px 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+header p {
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* ---- SECTIONS ---- */
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-left: 4px solid #4e9af1;
+  padding-left: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 30px 0;
+}
+
+body.dark hr {
+  border-top: 1px solid #ccc;
+}
+
+/* ---- SEARCH ---- */
+.search-section input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #2a2a4a;
+  color: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+/* ---- CONTROLS ---- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #2a2a4a;
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* ---- BUTTONS ---- */
+button {
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#toggleTheme {
+  background: #333;
+  color: #fff;
+  margin-top: 5px;
+}
+
+#toggleTheme:hover {
+  background: #555;
+}
+
+#nextRiddle {
+  background: #28a745;
   color: white;
 }
 
-header{
-  margin-bottom:30px;
+#nextRiddle:hover {
+  background: #1e7e34;
 }
 
-header h1{
-  font-size:36px;
-  margin-bottom:10px;
+#loadMany {
+  background: #4e9af1;
+  color: white;
 }
 
-header p{
-  color:#ccc;
-  margin-bottom:25px;
+#loadMany:hover {
+  background: #2878c8;
 }
 
-select, button{
-  padding:10px;
-  margin:10px;
-  border-radius:6px;
-  border:none;
+#clearFavs {
+  background: #cc3333;
+  color: white;
+  margin-top: 15px;
 }
 
-/* Button */
-#nextRiddle{
-  background:#28a745;
-  color:white;
-  cursor:pointer;
+#clearFavs:hover {
+  background: #991111;
 }
 
-#nextRiddle:hover{
-  background:#1e7e34;
+.reveal-btn {
+  background: #4e9af1;
+  color: white;
+  padding: 8px 14px;
+  font-size: 13px;
 }
 
-/* Card */
-.riddle-card{
-  background:white;
-  color:black;
-  padding:20px;
-  border-radius:8px;
-  margin-top:20px;
+.reveal-btn:hover {
+  background: #2878c8;
 }
 
-.riddle-card button{
-  margin-top:10px;
-  padding:8px 12px;
-  border:none;
-  background:#007bff;
-  color:white;
-  border-radius:5px;
-  cursor:pointer;
+.fav-btn {
+  background: #f0a500;
+  color: white;
+  padding: 8px 14px;
+  font-size: 13px;
 }
 
-.answer{
-  margin-top:10px;
-  font-weight:bold;
+.fav-btn:hover {
+  background: #c78400;
 }
 
-/* Dark Mode */
-.dark{
-  background:white;
-  color:black;
+.fav-btn.saved {
+  background: #888;
+  cursor: default;
 }
 
-.dark .riddle-card{
-  background:#f5f5f5;
+/* ---- RIDDLE CARDS ---- */
+.riddle-card {
+  background: #16213e;
+  color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 4px solid #4e9af1;
+}
+
+.riddle-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.answer {
+  margin-top: 12px;
+  padding: 10px;
+  background: #0f3460;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #7ee8a2;
+}
+
+body.dark .answer {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* ---- LOADING ---- */
+.loading-msg {
+  display: none;
+  text-align: center;
+  font-size: 16px;
+  color: #aaa;
+  margin: 15px 0;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background: #16213e;
+  border-radius: 10px;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  select, button {
+    width: 100%;
+  }
 }
